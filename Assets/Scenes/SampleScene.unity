@@ -152,7 +152,7 @@ MonoBehaviour:
   crosshair: {fileID: 8589821205817485644}
   bulletPrefab: {fileID: 7861828226670453534}
   spawnForwardOffset: 0.1
-  fireDuration: 10
+  shooterCollider: {fileID: 0}
 --- !u!4 &279756728
 Transform:
   m_ObjectHideFlags: 0
@@ -698,8 +698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1ac9f47e599e14694286e50761d2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Crosshair3DController
-  moveSpeed: 5
-  limits: {x: 5, y: 5}
+  moveSpeed: 3
+  limits: {x: 1, y: 1}
   distanceFromCamera: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
