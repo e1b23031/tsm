@@ -30,7 +30,7 @@ public class Crosshair3DController : MonoBehaviour
         if (Keyboard.current == null) return;
 
         var k = Keyboard.current;
-        float x = (k.rightArrowKey.isPressed ? 1f : 0f) - (k.leftArrowKey.isPressed ? 1f : 0f);
+        float x = (k.leftArrowKey.isPressed ? 1f : 0f) - (k.rightArrowKey.isPressed ? 1f : 0f);
         float y = (k.upArrowKey.isPressed ? 1f : 0f) - (k.downArrowKey.isPressed ? 1f : 0f);
 
         // “ü—Í‚ð”½‰f
