@@ -34,7 +34,7 @@ public class GameTimer : MonoBehaviour
         // 時間切れでゲームオーバーへ
         if (remaining <= 0f)
         {
-            SceneManager.LoadScene("GameOverScene");
+            SceneManager.LoadScene("Finish");
         }
     }
 }
