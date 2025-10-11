@@ -6,7 +6,7 @@ public class GameOverUI : MonoBehaviour
     // ゲーム再スタート（例：MainScene に戻る）
     public void RetryGame()
     {
-        SceneManager.LoadScene("MainScene"); // ← あなたのゲームシーン名に変更
+        SceneManager.LoadScene("SampleScene"); // ← あなたのゲームシーン名に変更
     }
 
     // アプリ終了
