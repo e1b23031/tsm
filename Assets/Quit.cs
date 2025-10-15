@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverUI : MonoBehaviour
+public class Quit : MonoBehaviour
 {
     // ƒAƒvƒŠI—¹
     public void QuitGame()
