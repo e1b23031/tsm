@@ -1,8 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Quit : MonoBehaviour
+public class FinishUI : MonoBehaviour
 {
+    // ゲーム再スタート（例：MainScene に戻る）
+    public void RetryGame()
+    {
+        SceneManager.LoadScene("SampleScene"); 
+    }
+
     // アプリ終了
     public void QuitGame()
     {
