@@ -33,6 +33,17 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter(Collider Enemy)
+    {
+        // Enemyタグのオブジェクトに当たったら
+        if (Enemy.CompareTag("Enemy"))
+        {
+            Destroy(Enemy.gameObject);  // 敵を消す
+            Destroy(gameObject);        // 弾も消す
+        }
+    }
+
 }
 
 

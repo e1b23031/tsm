@@ -33,5 +33,18 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 spawnPos = new Vector3(randomX, 0.5f, spawnZ);
         Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+
+        GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+
+
+        Renderer renderer = enemy.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.material.color = Random.ColorHSV(
+                0f, 1f,    // 色相（Hue）
+                0.6f, 1f,  // 彩度（Saturation）
+                0.8f, 1f   // 明度（Value）
+            );
+        }
     }
 }
