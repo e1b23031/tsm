@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c15dffb10791342ad9d29fe51ca9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  gameDuration: 30
+  gameDuration: 5
   timerText: {fileID: 393057792}
 --- !u!1 &1133431982
 GameObject:
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971b0d54bde7c7f41a73275b173162ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemyPrefab: {fileID: 1960783660849948396, guid: e40c50a826e13194daeb49bacbed92f2, type: 3}
+  enemyPrefab: {fileID: 1960783660849948396, guid: 80a959a1c3d1f6e4caafa3dae722a19b, type: 3}
   spawnInterval: 2
   spawnZ: -20
 --- !u!4 &1514182027
