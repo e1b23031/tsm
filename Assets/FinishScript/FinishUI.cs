@@ -6,7 +6,7 @@ public class FinishUI : MonoBehaviour
     // ゲーム再スタート（例：MainScene に戻る）
     public void RetryGame()
     {
-        SceneManager.LoadScene("SampleScene"); 
+        SceneManager.LoadScene("Main"); 
     }
 
     // アプリ終了
