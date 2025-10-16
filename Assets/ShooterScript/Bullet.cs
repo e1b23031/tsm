@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 30f;
     public float lifeTime = 5f;
-
+    public int scoreValue = 10;
     private Rigidbody rb;
 
     void Awake()
@@ -41,7 +41,16 @@ public class Bullet : MonoBehaviour
         {
             Destroy(Enemy.gameObject);  // 敵を消す
             Destroy(gameObject);        // 弾も消す
+
+
+
+            if (Score.instance != null)
+            {
+                Score.instance.AddScore(scoreValue);
+            }
         }
+
+
     }
 
 }
