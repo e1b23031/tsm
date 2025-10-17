@@ -6,7 +6,7 @@ public class StartUI : MonoBehaviour
     // スタートボタンを押したとき
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene"); 
+        SceneManager.LoadScene("Main"); 
     }
 
     // 終了ボタンを押したとき
