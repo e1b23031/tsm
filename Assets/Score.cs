@@ -15,6 +15,11 @@ public class Score : MonoBehaviour
     void Start()
     {
         UpdateScoreText();
+
+        if (scoreText != null)
+        {
+            scoreText.color = Color.blue;
+        }
     }
 
     public void AddScore(int value)

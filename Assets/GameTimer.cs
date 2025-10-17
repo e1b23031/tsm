@@ -27,7 +27,10 @@ public class GameTimer : MonoBehaviour
         if (timerText != null)
         {
             timerText.text = $"{minutes}.{seconds:D2}";
-            if (remaining <= 30f) timerText.color = Color.red;
+            if (remaining <= 30f)
+                timerText.color = Color.red;
+            else
+                timerText.color = Color.black;
 
         }
 
