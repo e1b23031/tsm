@@ -1,21 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem; // ← 新Input Systemを使っている場合
 
 public class StartUI : MonoBehaviour
 {
-    // スタートボタンを押したとき
-    public void StartGame()
+    void Update()
     {
-        SceneManager.LoadScene("SampleScene"); 
-    }
-
-    // 終了ボタンを押したとき
-    public void QuitGame()
-    {
-        Application.Quit();
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
+        // Enterキー（Returnキー）でゲーム開始
+        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene("Main"); // ← ゲーム本編のシーン名に変更
+        }
     }
 }
+
 
