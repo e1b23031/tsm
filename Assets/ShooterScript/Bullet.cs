@@ -5,14 +5,7 @@ public class Bullet : MonoBehaviour
     public float speed = 30f;
     public float lifeTime = 5f;
     public int scoreValue = 10;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
     private bool hasHit = false;
->>>>>>> Stashed changes
-=======
-    private bool hasHit = false;
->>>>>>> Stashed changes
     private Rigidbody rb;
 
     void Awake()
@@ -34,7 +27,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    // ✅ Trigger専用にする
+    //  Trigger専用にする
     void OnTriggerEnter(Collider other)
     {
         if (hasHit) return;
@@ -42,20 +35,8 @@ public class Bullet : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            Destroy(Enemy.gameObject);  // 敵を消す
-            Destroy(gameObject);        // 弾も消す
-
-
-=======
             Destroy(other.gameObject);
             Destroy(gameObject);
->>>>>>> Stashed changes
-=======
-            Destroy(other.gameObject);
-            Destroy(gameObject);
->>>>>>> Stashed changes
 
             if (Score.instance != null)
             {

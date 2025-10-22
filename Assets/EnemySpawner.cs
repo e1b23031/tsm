@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 spawnPos = new Vector3(randomX, 0.5f, spawnZ);
 
-        // ✅ 1回だけ生成！
+        // 1回だけ生成！
         GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
 
         Renderer renderer = enemy.GetComponent<Renderer>();
