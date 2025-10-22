@@ -6,6 +6,10 @@ public class Bullet : MonoBehaviour
     public float lifeTime = 5f;
     public int scoreValue = 10;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    private bool hasHit = false;
+>>>>>>> Stashed changes
 =======
     private bool hasHit = false;
 >>>>>>> Stashed changes
@@ -39,10 +43,15 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             Destroy(Enemy.gameObject);  // 敵を消す
             Destroy(gameObject);        // 弾も消す
 
 
+=======
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+>>>>>>> Stashed changes
 =======
             Destroy(other.gameObject);
             Destroy(gameObject);
@@ -53,7 +62,5 @@ public class Bullet : MonoBehaviour
                 Score.instance.AddScore(scoreValue);
             }
         }
-
-
     }
 }
