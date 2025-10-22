@@ -8,6 +8,10 @@ public class EnemySpawner : MonoBehaviour
     private float timer = 0f;
     private Camera mainCamera;
 
+
+    public float minY = 0f;
+    public float maxY = 0.5f;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -27,8 +31,9 @@ public class EnemySpawner : MonoBehaviour
     {
         float cameraWidth = mainCamera.orthographicSize * mainCamera.aspect;
         float randomX = Random.Range(-cameraWidth * 0.8f, cameraWidth * 0.8f);
+        float randomY = Random.Range(minY, maxY);
 
-        Vector3 spawnPos = new Vector3(randomX, 0.5f, spawnZ);
+        Vector3 spawnPos = new Vector3(randomX, randomY, spawnZ);
 
         // 1回だけ生成！
         GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);

@@ -962,6 +962,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1960783660849948396, guid: 80a959a1c3d1f6e4caafa3dae722a19b, type: 3}
   spawnInterval: 2
   spawnZ: -20
+  minY: -1
+  maxY: 0.5
 --- !u!4 &1514182027
 Transform:
   m_ObjectHideFlags: 0
@@ -1241,7 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Crosshair3DController
   moveSpeed: 3
-  limits: {x: 1, y: 0.5}
+  limits: {x: 2, y: 0.5}
   distanceFromCamera: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
