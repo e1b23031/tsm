@@ -31,17 +31,24 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (hasHit) return;
-        hasHit = true;
 
-        if (other.CompareTag("Enemy"))
+        // 敵のHPコンポーネントを探す
+        var hp = other.GetComponent<EnemyHealth>();
+        if (hp == null)
         {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
+            // 子オブジェクトにColliderが付く構成なら親から探す
+            hp = other.GetComponentInParent<EnemyHealth>();
+        }
 
-            if (Score.instance != null)
-            {
-                Score.instance.AddScore(scoreValue);
-            }
+        if (hp != null)
+        {
+            hasHit = true;
+
+            // 1ヒット＝1ダメージ（必要なら弾ごとにダメージ量をpublic化）
+            hp.TakeDamage(1);
+
+            // 弾はヒットしたら消す（多段ヒットを狙うならここを残存に）
+            Destroy(gameObject);
         }
     }
 }

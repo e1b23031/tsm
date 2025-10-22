@@ -5,17 +5,24 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public float spawnInterval = 2f;
     public float spawnZ = -20f;
-    private float timer = 0f;
-    private Camera mainCamera;
 
+    [Header("Spawn Ratio (Normal:Big = 9:1)")]
+    [Range(0f, 1f)] public float bigSpawnProbability = 0.1f;
 
-    public float minY = 0f;
-    public float maxY = 0.5f;
+    [Header("Normal Enemy")]
+    public int normalHP = 3;
+    public int normalScore = 10;
+    public Vector3 normalScale = new Vector3(0.7f, 0.7f, 0.7f);
 
-    void Start()
-    {
-        mainCamera = Camera.main;
-    }
+    [Header("Big Enemy")]
+    public int bigHP = 10;
+    public int bigScore = 30;
+    public Vector3 bigScale = new Vector3(1.3f, 1.3f, 1.3f);
+
+    float timer;
+    Camera mainCamera;
+
+    void Start() => mainCamera = Camera.main;
 
     void Update()
     {
@@ -29,23 +36,31 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        float cameraWidth = mainCamera.orthographicSize * mainCamera.aspect;
-        float randomX = Random.Range(-cameraWidth * 0.8f, cameraWidth * 0.8f);
-        float randomY = Random.Range(minY, maxY);
+        float camWidth = mainCamera.orthographicSize * mainCamera.aspect;
+        float x = Random.Range(-camWidth * 0.8f, camWidth * 0.8f);
+        Vector3 pos = new Vector3(x, 0.5f, spawnZ);
 
-        Vector3 spawnPos = new Vector3(randomX, randomY, spawnZ);
+        GameObject go = Instantiate(enemyPrefab, pos, Quaternion.identity);
 
-        // 1回だけ生成！
-        GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        bool isBig = Random.value < bigSpawnProbability;
+        var hp = go.GetComponent<EnemyHealth>();
+        if (hp == null) hp = go.AddComponent<EnemyHealth>();
 
-        Renderer renderer = enemy.GetComponent<Renderer>();
-        if (renderer != null)
+        if (isBig)
         {
-            renderer.material.color = Random.ColorHSV(
-                0f, 1f,    // 色相（Hue）
-                0.6f, 1f,  // 彩度（Saturation）
-                0.8f, 1f   // 明度（Value）
-            );
+            go.transform.localScale = bigScale;
+            hp.Initialize(bigHP, bigScore);            // ★ここが重要
+            var r = go.GetComponent<Renderer>();
+            if (r) r.material.color = Color.white;     // 見た目の区別
         }
+        else
+        {
+            go.transform.localScale = normalScale;
+            hp.Initialize(normalHP, normalScore);      // ★ここが重要
+            var r = go.GetComponent<Renderer>();
+            if (r) r.material.color = Random.ColorHSV(0f, 1f, 0.6f, 1f, 0.8f, 1f);
+        }
+
+        go.tag = "Enemy"; // 念のため明示
     }
 }
