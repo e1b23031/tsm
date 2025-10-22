@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CrosshairGamepadShooter : MonoBehaviour
@@ -66,3 +65,4 @@ public class CrosshairGamepadShooter : MonoBehaviour
         Debug.Log("Fire!"); // 確認用
     }
 }
+

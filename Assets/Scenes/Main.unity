@@ -1226,7 +1226,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7788618837383373405, guid: 13175b3f6b717c1409967033b08cbf72, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8589821205817485649}
+      addedObject: {fileID: 8589821205817485646}
   m_SourcePrefab: {fileID: 100100000, guid: 13175b3f6b717c1409967033b08cbf72, type: 3}
 --- !u!4 &8589821205817485644 stripped
 Transform:
@@ -1238,7 +1238,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7788618837383373405, guid: 13175b3f6b717c1409967033b08cbf72, type: 3}
   m_PrefabInstance: {fileID: 8589821205817485643}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8589821205817485649
+--- !u!114 &8589821205817485646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1247,15 +1247,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8589821205817485645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d715c20b7c1b24296864fe218f70f7, type: 3}
+  m_Script: {fileID: 11500000, guid: d8b35bc89e6fd6045a6d1107077fa69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrosshairGamepadShooter
-  moveSpeed: 2
-  limits: {x: 2, y: 1}
+  moveSpeed: 5
+  limits: {x: 3, y: 1}
   distanceFromCamera: 3
   bulletPrefab: {fileID: 3303660823547900644, guid: 9043835818d22c440bd6f5b2f8074f9f, type: 3}
   bulletSpeed: 10
-  shootInterval: 0.2
+  shootInterval: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
