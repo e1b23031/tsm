@@ -15,11 +15,14 @@ public class Score : MonoBehaviour
     void Start()
     {
         UpdateScoreText();
+<<<<<<< Updated upstream
 
         if (scoreText != null)
         {
             scoreText.color = Color.blue;
         }
+=======
+>>>>>>> Stashed changes
     }
 
     public void AddScore(int value)
