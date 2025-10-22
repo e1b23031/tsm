@@ -203,31 +203,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 279756728}
-  - component: {fileID: 279756727}
+  - component: {fileID: 279756729}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &279756727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279756726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22841604f27803049a222674b8e5ff5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shooter3D
-  cam: {fileID: 0}
-  crosshair: {fileID: 8589821205817485644}
-  bulletPrefab: {fileID: 6239578976065285938, guid: 9043835818d22c440bd6f5b2f8074f9f, type: 3}
-  spawnForwardOffset: 0.1
-  shooterCollider: {fileID: 0}
+  m_IsActive: 0
 --- !u!4 &279756728
 Transform:
   m_ObjectHideFlags: 0
@@ -236,13 +219,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279756726}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: -0, y: -0.9961947, z: 0.08715578, w: 0}
+  m_LocalPosition: {x: 0, y: 2.3454528, z: 4.6635666}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 519420032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279756729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279756726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d715c20b7c1b24296864fe218f70f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CrosshairGamepadShooter
+  moveSpeed: 2
+  limits: {x: 0.5, y: 0.3}
+  distanceFromCamera: 3
+  bulletPrefab: {fileID: 3303660823547900644, guid: 9043835818d22c440bd6f5b2f8074f9f, type: 3}
+  bulletSpeed: 10
+  shootInterval: 0.2
 --- !u!1 &393057791
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +516,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8589821205817485644}
+  - {fileID: 279756728}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10, y: 180, z: 0}
 --- !u!1 &619394800
@@ -1224,7 +1226,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7788618837383373405, guid: 13175b3f6b717c1409967033b08cbf72, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8589821205817485646}
+      addedObject: {fileID: 8589821205817485649}
   m_SourcePrefab: {fileID: 100100000, guid: 13175b3f6b717c1409967033b08cbf72, type: 3}
 --- !u!4 &8589821205817485644 stripped
 Transform:
@@ -1236,7 +1238,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7788618837383373405, guid: 13175b3f6b717c1409967033b08cbf72, type: 3}
   m_PrefabInstance: {fileID: 8589821205817485643}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8589821205817485646
+--- !u!114 &8589821205817485649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1245,13 +1247,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8589821205817485645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe1ac9f47e599e14694286e50761d2dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 42d715c20b7c1b24296864fe218f70f7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Crosshair3DController
-  moveSpeed: 3
-  limits: {x: 2, y: 0.5}
+  m_EditorClassIdentifier: Assembly-CSharp::CrosshairGamepadShooter
+  moveSpeed: 2
+  limits: {x: 2, y: 1}
   distanceFromCamera: 3
-  initialYOffset: 5
+  bulletPrefab: {fileID: 3303660823547900644, guid: 9043835818d22c440bd6f5b2f8074f9f, type: 3}
+  bulletSpeed: 10
+  shootInterval: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1259,7 +1263,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1514182027}
-  - {fileID: 279756728}
   - {fileID: 1133431985}
   - {fileID: 1048420721}
   - {fileID: 2066307246}
