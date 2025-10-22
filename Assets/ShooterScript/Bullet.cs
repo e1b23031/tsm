@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     public float speed = 30f;
     public float lifeTime = 5f;
     public int scoreValue = 10;
+    private bool hasHit = false;
     private Rigidbody rb;
 
     void Awake()
@@ -13,15 +14,12 @@ public class Bullet : MonoBehaviour
         if (rb)
         {
             rb.useGravity = false;
-            rb.linearDamping = 0f;
-            rb.angularDamping = 0f;
             rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             rb.interpolation = RigidbodyInterpolation.None;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 
-    // 発射方向を渡して飛ばす
     public void Fire(Vector3 direction)
     {
         if (!rb) return;
@@ -29,30 +27,21 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    void OnCollisionEnter(Collision _)
+    //  Trigger専用にする
+    void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-    }
+        if (hasHit) return;
+        hasHit = true;
 
-    void OnTriggerEnter(Collider Enemy)
-    {
-        // Enemyタグのオブジェクトに当たったら
-        if (Enemy.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            Destroy(Enemy.gameObject);  // 敵を消す
-            Destroy(gameObject);        // 弾も消す
-
-
+            Destroy(other.gameObject);
+            Destroy(gameObject);
 
             if (Score.instance != null)
             {
                 Score.instance.AddScore(scoreValue);
             }
         }
-
-
     }
-
 }
-
-

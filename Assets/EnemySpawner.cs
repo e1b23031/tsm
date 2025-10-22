@@ -1,10 +1,10 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;       // EnemyƒvƒŒƒnƒu
-    public float spawnInterval = 2f;     // ƒXƒ|[ƒ“ŠÔŠu
-    public float spawnZ = -20f;          // ƒXƒ|[ƒ“ˆÊ’uZ
+    public GameObject enemyPrefab;
+    public float spawnInterval = 2f;
+    public float spawnZ = -20f;
     private float timer = 0f;
     private Camera mainCamera;
 
@@ -25,25 +25,21 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // ƒJƒƒ‰‚Ì¶‰EiX²j”ÍˆÍ‚ğæ“¾
         float cameraWidth = mainCamera.orthographicSize * mainCamera.aspect;
-
-        // X²‚Í­‚µ“à‘¤‚Åƒ‰ƒ“ƒ_ƒ€‚É
         float randomX = Random.Range(-cameraWidth * 0.8f, cameraWidth * 0.8f);
 
         Vector3 spawnPos = new Vector3(randomX, 0.5f, spawnZ);
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
 
+        // 1å›ã ã‘ç”Ÿæˆï¼
         GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-
 
         Renderer renderer = enemy.GetComponent<Renderer>();
         if (renderer != null)
         {
             renderer.material.color = Random.ColorHSV(
-                0f, 1f,    // F‘ŠiHuej
-                0.6f, 1f,  // Ê“xiSaturationj
-                0.8f, 1f   // –¾“xiValuej
+                0f, 1f,    // è‰²ç›¸ï¼ˆHueï¼‰
+                0.6f, 1f,  // å½©åº¦ï¼ˆSaturationï¼‰
+                0.8f, 1f   // æ˜åº¦ï¼ˆValueï¼‰
             );
         }
     }
