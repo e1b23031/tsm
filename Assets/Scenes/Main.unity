@@ -1205,6 +1205,7 @@ MonoBehaviour:
   moveSpeed: 3
   limits: {x: 1, y: 0.5}
   distanceFromCamera: 3
+  initialYOffset: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

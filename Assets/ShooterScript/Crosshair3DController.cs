@@ -10,6 +10,8 @@ public class Crosshair3DController : MonoBehaviour
     [Header("Depth")]
     public float distanceFromCamera = 3f;        // カメラからの距離（ローカルZ）
 
+    public float initialYOffset = 0f;
+
     private Camera cam;
     private Vector2 offset; // 中心からのローカルオフセット
 
@@ -20,7 +22,9 @@ public class Crosshair3DController : MonoBehaviour
         // カメラの子になっている前提で、初期位置を奥(z)に固定
         if (transform.parent == cam.transform)
         {
-            transform.localPosition = new Vector3(0f, 0f, distanceFromCamera);
+            offset = new Vector2(0f, initialYOffset);
+
+            transform.localPosition = new Vector3(0f, initialYOffset, distanceFromCamera);
             transform.localRotation = Quaternion.identity;
         }
     }
@@ -30,7 +34,7 @@ public class Crosshair3DController : MonoBehaviour
         if (Keyboard.current == null) return;
 
         var k = Keyboard.current;
-        float x = (k.leftArrowKey.isPressed ? 1f : 0f) - (k.rightArrowKey.isPressed ? 1f : 0f);
+        float x = (k.rightArrowKey.isPressed ? 1f : 0f) - (k.leftArrowKey.isPressed ? 1f : 0f);
         float y = (k.upArrowKey.isPressed ? 1f : 0f) - (k.downArrowKey.isPressed ? 1f : 0f);
 
         // 入力を反映
