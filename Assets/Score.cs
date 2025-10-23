@@ -35,4 +35,10 @@ public class Score : MonoBehaviour
             scoreText.text = "Score: " + currentScore.ToString();
         }
     }
+
+    public void SaveScore()
+    {
+        PlayerPrefs.SetInt("FinalScore", currentScore); // 現在のスコアを保存
+        PlayerPrefs.Save(); // 保存を確定
+    }
 }
