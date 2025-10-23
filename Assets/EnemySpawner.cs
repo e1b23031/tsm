@@ -51,14 +51,14 @@ public class EnemySpawner : MonoBehaviour
             go.transform.localScale = bigScale;
             hp.Initialize(bigHP, bigScore);            // ★ここが重要
             var r = go.GetComponent<Renderer>();
-            if (r) r.material.color = Color.white;     // 見た目の区別
+            if (r) r.material.color = Color.red;     // 見た目の区別
         }
         else
         {
             go.transform.localScale = normalScale;
             hp.Initialize(normalHP, normalScore);      // ★ここが重要
             var r = go.GetComponent<Renderer>();
-            if (r) r.material.color = Random.ColorHSV(0f, 1f, 0.6f, 1f, 0.8f, 1f);
+            if (r) r.material.color = Color.white;
         }
 
         go.tag = "Enemy"; // 念のため明示
