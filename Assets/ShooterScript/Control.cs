@@ -36,10 +36,9 @@ public class CrosshairGamepadShooter : MonoBehaviour
         transform.localPosition = new Vector3(offset.x, offset.y, distanceFromCamera);
 
         // 🔫 ZR または ZL トリガーで発射
-        bool shootPressed =
-            pad.rightTrigger.ReadValue() > 0.5f || pad.leftTrigger.ReadValue() > 0.5f;
-
-        if (shootPressed && Time.time - lastShootTime >= shootInterval)
+        // ボタンが押された瞬間だけ反応する
+        if ((pad.rightTrigger.wasPressedThisFrame || pad.leftTrigger.wasPressedThisFrame)
+            && Time.time - lastShootTime >= shootInterval)
         {
             Fire();
             lastShootTime = Time.time;
