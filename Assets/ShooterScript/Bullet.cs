@@ -7,10 +7,13 @@ public class Bullet : MonoBehaviour
     public int scoreValue = 10;
     private bool hasHit = false;
     private Rigidbody rb;
+    public AudioClip fireSound;  // 発射音のAudioClip
+    private AudioSource audioSource;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();  // AudioSourceの取得
         if (rb)
         {
             rb.useGravity = false;
@@ -24,6 +27,10 @@ public class Bullet : MonoBehaviour
     {
         if (!rb) return;
         rb.linearVelocity = direction.normalized * speed;
+        if (audioSource && fireSound)
+        {
+            audioSource.PlayOneShot(fireSound);  // 発射時の音を再生
+        }
         Destroy(gameObject, lifeTime);
     }
 
@@ -51,4 +58,6 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }
