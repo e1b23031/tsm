@@ -7,7 +7,7 @@ public class FinishScreen : MonoBehaviour
 
     void Start()
     {
-        int finalScore = PlayerPrefs.GetInt("FinalScore", 0); // スコアを取得（0はデフォルト値）
+        int finalScore = PlayerPrefs.GetInt("FinalScore"); // スコアを取得（0はデフォルト値）
 
         // UIにスコアを表示
         if (scoreText != null)

@@ -34,6 +34,7 @@ public class Score : MonoBehaviour
         {
             scoreText.text = "Score: " + currentScore.ToString();
         }
+        SaveScore();
     }
 
     public void SaveScore()
