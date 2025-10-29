@@ -12,7 +12,7 @@ public class FinishScreen : MonoBehaviour
         // UIにスコアを表示
         if (scoreText != null)
         {
-            scoreText.text = "Final Score: " + finalScore.ToString();
+            scoreText.text = "Score: " + finalScore.ToString();
         }
     }
 }
