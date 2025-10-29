@@ -4,8 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - damageSound: {fileID: 8300000, guid: 142c2a37931c237409cf609963ee6864, type: 3}
-  - deathSound: {fileID: 8300000, guid: da93b4ace888bad4895c9a7782ae4a5d, type: 3}
+  - hitSound: {fileID: 8300000, guid: 142c2a37931c237409cf609963ee6864, type: 3}
   - damageEffect: {instanceID: 0}
   - deathEffect: {instanceID: 0}
   executionOrder: 0

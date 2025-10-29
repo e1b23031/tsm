@@ -7,21 +7,15 @@ public class EnemyHealth : MonoBehaviour
     public int maxHP = 3;        // デフォルト。Spawnerから上書きされる
     public int scoreOnKill = 10;
 
-    [Header("Sound Effects")]
-    public AudioClip damageSound;  // ダメージ時の音
-    public AudioClip deathSound;   // 死亡時の音
+    [Header("Sound Effect")]
+    public AudioClip hitSound;  // ダメージ・死亡時の同じ音
     private AudioSource audioSource;
-
-    [Header("Effects")]
-    public GameObject damageEffect;  // ダメージ時のエフェクト
-    public GameObject deathEffect;   // 死亡時のエフェクト
 
     int currentHP = 0;
     bool isDead = false;
 
     void Awake()
     {
-        // SpawnerからInitializeされなかった場合の保険
         if (currentHP <= 0) currentHP = maxHP;
 
         var col = GetComponent<Collider>();
@@ -31,15 +25,14 @@ public class EnemyHealth : MonoBehaviour
         audioSource = GetComponent<AudioSource>();  // AudioSourceの取得
     }
 
-    // ★Spawnerから必ず呼ぶ：これで「大型=10HP」が確実に反映される
+    // スポーン時に初期化される
     public void Initialize(int hp, int score)
     {
         maxHP = hp;
         scoreOnKill = score;
-        currentHP = hp; // Awakeの初期化より後でも確実に上書き
+        currentHP = hp;
         isDead = false;
     }
-
 
     public void TakeDamage(int dmg)
     {
@@ -47,29 +40,23 @@ public class EnemyHealth : MonoBehaviour
 
         currentHP -= dmg;
 
-        // ダメージを受けたときの音とエフェクト
-        if (damageSound && audioSource)
-        {
-            audioSource.PlayOneShot(damageSound);  // ダメージ音を再生
-        }
-        if (damageEffect)
-        {
-            Instantiate(damageEffect, transform.position, Quaternion.identity);  // ダメージエフェクトを生成
-        }
+        // 同じ音をダメージ時も死亡時も再生
+        PlaySound(hitSound);  // ダメージ音（死亡時にも使用）
 
         if (currentHP <= 0)
         {
-            Die();  // 死亡処理を呼び出す
+            Die();
         }
     }
 
     void Die()
     {
-        if (isDead) return;  // 既に死んでいる場合は処理しない
-        isDead = true;  // 死亡フラグを立てる
+        // isDead がすでに true なら、処理を中断
+        if (isDead) return;
+        isDead = true;
 
-        audioSource.PlayOneShot(deathSound);  // 死亡音を再生
-        Instantiate(deathEffect, transform.position, Quaternion.identity);  // 死亡エフェクトを生成
+        // 死亡音を再生（ダメージ音と同じ音）
+        PlaySound(hitSound);  // 死亡音も同じ音を使用
 
         // スコア加算処理
         if (Score.instance != null)
@@ -79,5 +66,14 @@ public class EnemyHealth : MonoBehaviour
 
         // オブジェクトを削除
         Destroy(gameObject);
+    }
+
+    // 音を再生するメソッドを統一
+    private void PlaySound(AudioClip sound)
+    {
+        if (sound != null && audioSource && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(sound);  // 音を再生
+        }
     }
 }

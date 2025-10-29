@@ -143,10 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHP: 3
   scoreOnKill: 10
-  damageSound: {fileID: 8300000, guid: 142c2a37931c237409cf609963ee6864, type: 3}
-  deathSound: {fileID: 8300000, guid: da93b4ace888bad4895c9a7782ae4a5d, type: 3}
-  damageEffect: {fileID: 0}
-  deathEffect: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: 142c2a37931c237409cf609963ee6864, type: 3}
 --- !u!82 &-2651252710216545443
 AudioSource:
   m_ObjectHideFlags: 0
@@ -158,8 +155,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: 142c2a37931c237409cf609963ee6864, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
