@@ -16,7 +16,7 @@ Xboxのコントローラーを用いて行うシューティングゲーム。
 
 1.　以下のURLからGitHubにアクセスする。 
 
-　　GitHub - e1b23031/tsm 
+　　https://github.com/e1b23031/tsm
 
 2.　Code　→　Download ZIP 
 
