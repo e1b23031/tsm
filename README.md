@@ -8,7 +8,9 @@ Xboxのコントローラーを用いて行うシューティングゲーム。
 
 1. https://unity.com/ja/download からUnityhubをインストールする。 
 
-2. UnityHubのInstallsタブのInstallEditerから6000.2.7f2を選択する。 
+2. UnityHubのInstallsタブのInstallEditerから6000.2.7f2を選択する。
+
+3. もしくはUnityhub 6000.2.7f2と検索する 
 
  
 
