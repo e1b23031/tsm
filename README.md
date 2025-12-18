@@ -28,7 +28,7 @@ Xboxのコントローラーを用いて行うシューティングゲーム。
 
 ### 起動 
 
-1.　UnityHubを起動し、「Add」をクリックし続けて「Add project from disc」をクリック。 
+1.　UnityHubを起動し、「Add」をクリックし、続けて「Add project from disc」をクリック。 
 
 2.　先ほど解凍したファイルがあるUnityHubを選択する。 
 
