@@ -6,11 +6,9 @@ Xboxのコントローラーを用いて行うシューティングゲーム。
 
 ### UnityHubのダウンロード 
 
-1. https://unity.com/ja/download からUnityhubをインストールする。 
+1. Unityhub 6000.2.7f2と検索する
 
-2. UnityHubのInstallsタブのInstallEditerから6000.2.7f2を選択する。
-
-3. もしくはUnityhub 6000.2.7f2と検索する 
+2. installをクリックしてインストールする
 
  
 
